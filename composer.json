@@ -1,0 +1,31 @@
+{
+    "name": "gallu/slim4-skeleton",
+    "description": "A Slim Framework skeleton application for rapid business use development",
+    "keywords": ["microframework", "rest", "psr7", "slim"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michiaki Furusho"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "slim/slim": "^4.0",
+        "monolog/monolog": "^2.0",
+        "twig/twig": "^3.0",
+        "gallu/slim-littie-tools": "^v1.0",
+        "slim/csrf": "^1.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
