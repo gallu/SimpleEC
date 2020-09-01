@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+// XXX 後でもうちょっとどこかに
+date_default_timezone_set('Asia/Tokyo');
+
 // 基準になるディレクトリ(最後の / はない形式で)
 define('BASEPATH', realpath(__DIR__ . '/..'));
 

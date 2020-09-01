@@ -1,0 +1,23 @@
+{% extends 'admin/parts/layout_base.twig' %}
+
+{% block body %}
+<h1>管理画面</h1>
+
+{% if error == 'empty' %}
+<div>
+IDかパスワードが空だよ？？？
+</div>
+{% endif %}
+{% if error == 'miss' %}
+<div>
+IDかパスワードが間違ってるよ？？？
+</div>
+{% endif %}
+
+<form action="/admin/login" method="post">
+{{ csrf() }}
+id<input name="id" value="{{ id }}"><br>
+pass<input name="pw" type="password"><br>
+<button>ログイン</button>
+</form>
+{% endblock %}

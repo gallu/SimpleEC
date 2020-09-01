@@ -1,0 +1,25 @@
+{% extends "front/layout.twig" %}
+
+{% block title %}{{ item.item_name }}{% endblock %}
+
+
+{% block content %}
+        <h1>ECサイト</h1>
+
+<h2>{{ item.item_name }}</h2>
+値段: {{ item.item_price|number_format }}円<br>
+{{ item.item_detail }}<br>
+<form action="/cart/add" method="post">
+{{ csrf() }}
+<input type="hidden" name="item_id" value="{{ item.item_id }}">
+<select name="num">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>個<br>
+<button>カートに追加する</button>
+</form>
+
+{% endblock %}

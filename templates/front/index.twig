@@ -1,0 +1,17 @@
+{% extends "front/layout.twig" %}
+
+{% block content %}
+        <h1>ECサイト</h1>
+
+<h2>商品一覧</h2>
+{% for key, var in items %}
+<div>
+{#  <td>{{ var.item_id }} #}
+{{ var.item_name }}　<a href="/detail/{{ var.item_id|url_encode }}">(詳細ページ)</a><br>
+値段: {{ var.item_price|number_format }}円<br>
+{{ var.item_detail }}<br>
+<br>
+</div>
+{% endfor %}
+
+{% endblock %}

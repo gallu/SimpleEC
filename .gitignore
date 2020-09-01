@@ -8,3 +8,6 @@
 # 環境別設定ファイル
 /src/by_environment_settings.php
 /src/by_environment_settings_dev.php
+
+#
+t.php

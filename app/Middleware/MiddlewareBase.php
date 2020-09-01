@@ -1,7 +1,9 @@
 <?php
 namespace App\Middleware;
 
-class MiddlewareBase
+use Psr\Http\Server\MiddlewareInterface;
+
+class MiddlewareBase implements MiddlewareInterface
 {
     /*
      */

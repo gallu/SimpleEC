@@ -1,0 +1,53 @@
+{% extends "front/layout.twig" %}
+
+{% block title %}　カート一覧{% endblock %}
+
+{% block content %}
+
+{%if 0 == cart|length %}
+カートには何も入っていません
+{% else %}
+カートの中身
+<table border="1">
+<tr>
+  <th>商品名
+  <th>単価
+  <th>個数
+  <th>小計
+  <th>
+{% for key, var in cart %}
+<tr>
+  <td>{{ var.data.item_name }}
+  <td>{{ var.data.item_price }}
+  <td>
+<form action="/cart/edit" method="post">
+{{ csrf() }}
+<input type="hidden" name="item_id" value="{{ key }}">
+<input name="num" value="{{ var.num }}"> 
+<button>数量の変更</button>
+</form>
+
+  <td>{{ var.subtotal }}
+  <td>
+<form action="/cart/delete" method="post">
+{{ csrf() }}
+<input type="hidden" name="item_id" value="{{ key }}">
+<button>削除</button>
+</form>
+
+{% endfor %}
+</table>
+<form action="/cart/clear" method="post">
+{{ csrf() }}
+<button>カート全クリア</button>
+</form>
+<br>
+合計: {{ total.total }}<br>
+税額: {{ total.tax }}<br>
+税込み合計: {{ total.total_with_tax }}<br>
+
+{% endif %}
+
+
+
+{% endblock %}

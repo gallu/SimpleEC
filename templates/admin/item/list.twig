@@ -1,0 +1,26 @@
+{% extends 'admin/parts/layout.twig' %}
+{% block title %}商品一覧{% endblock %}
+
+{% block contents %}
+{% if '' != message %}{{ message }}<br>{% endif %}
+<a href="/admin/item/create">商品 新規登録</a>
+
+<h2>商品一覧</h2>
+<table border="1">
+<tr>
+  <th>商品ID
+  <th>商品名
+  <th>値段
+  <th>商品詳細
+  <th>登録日
+{% for key, var in items %}
+<tr>
+  <td>{{ var.item_id }}
+  <td><a href="/admin/item/detail/{{ var.item_id|url_encode }}">{{ var.item_name }}</a>
+  <td>{{ var.item_price|number_format }}
+  <td>{{ var.item_detail }}
+  <td>{{ var.created_at }}
+{% endfor %}
+</table>
+
+{% endblock %}
